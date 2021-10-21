@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react"
+
+//import routes and components
+import { Route, Switch } from "react-router-dom";
+import Stocks from "./pages/Stocks";
+import Main from "./pages/Main";
+import About from "./pages/About";
+import Price from './pages/Price'
+import Nav from "./components/Nav";
+// import Stock from './pages/Stock'
 
 function App() {
+  // we will use the Route component to specify each route
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <Switch> 
+      <Route exact path = "/">
+        <Main />
+      </Route>
+      <Route path = "/stocks">
+        <Stocks />
+      </Route>
+      <Route path = "/about">
+        <About />
+      </Route>
+      <Route path="/stock/:{symbol}" render={(routerProps) => <Price {...routerProps} /> } /> 
+      {/* <Stock /> */}
+      </Switch> 
+
+    
     </div>
   );
 }
