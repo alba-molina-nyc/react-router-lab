@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router } from "react-router-dom";
+// We import BrowserRouter from react-router-dom and rename it as Router
+import { BrowserRouter as Router } from 'react-router-dom'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router> 
-    <App />
+    {/* We need to wrap our App component
+    in the Router component in order
+    To use react-router tools */}
+    <Router>
+      <App />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
